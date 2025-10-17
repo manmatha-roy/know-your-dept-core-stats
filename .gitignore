@@ -1,5 +1,6 @@
 # Ignore log directory
 log/
 venv/
+cache/
 
 
