@@ -117,7 +117,7 @@ overall_A = 0
 overall_A_star = 0
 person_summary = []
 
-print_status(f"➡ Processing {input_file}", force=True)
+print_status(f"➡ Processing {input_file} \n\n", force=True)
 
 # ------------------------------
 # Process each faculty entry
