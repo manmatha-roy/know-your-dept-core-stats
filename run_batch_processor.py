@@ -16,9 +16,14 @@ if not os.path.isfile(agg_script):
 
 # Run the aggregation script for each CSV file
 for csv_file in csv_files:
-    print(f"➡ Processing {csv_file}")
+    print("="*80)
+    print("\n"*3)
+   
+
+    # print(f"➡ Processing {csv_file}")
     subprocess.run(
-        ["python3", agg_script, csv_file, "--since", "2015"],
+        ["python3", agg_script, csv_file, "--since", "2015", "--quiet"],
+        # ["python3", agg_script, csv_file, "--since", "2015"],
         check=True
     )
 
