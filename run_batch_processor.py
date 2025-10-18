@@ -22,7 +22,7 @@ for csv_file in csv_files:
 
     # print(f"➡ Processing {csv_file}")
     subprocess.run(
-        ["python3", agg_script, csv_file, "--since", "2015", "--quiet"],
+        ["python3", agg_script, csv_file, "--since", "2020", "--quiet"],
         # ["python3", agg_script, csv_file, "--since", "2015"],
         check=True
     )
