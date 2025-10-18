@@ -139,10 +139,10 @@ with tqdm(total=len(persons_df), desc="Overall Progress", ncols=100, colour="blu
                     xml_content = response.read()
                 with open(xml_filename, "wb") as f:
                     f.write(xml_content)
-                tqdm.write(f"{GREEN}[{name}] Download complete.{RESET}")
+                #tqdm.write(f"{GREEN}[{name}] Download complete.{RESET}")
                 downloaded_count += 1
             else:
-                tqdm.write(f"{GREEN}[{name}] Using cached XML.{RESET}")
+                #tqdm.write(f"{GREEN}[{name}] Using cached XML.{RESET}")
                 cached_count += 1
 
             # Parse XML safely with recovery
@@ -179,7 +179,7 @@ with tqdm(total=len(persons_df), desc="Overall Progress", ncols=100, colour="blu
                                 count_A_star += 1
                                 overall_A_star += 1
 
-            tqdm.write(f"{CYAN}[{name}] Extracted {count_A_star} A* and {count_A} A papers.{RESET}")
+            #tqdm.write(f"{CYAN}[{name}] Extracted {count_A_star} A* and {count_A} A papers.{RESET}")
             person_summary.append({"person": name, "A*": count_A_star, "A": count_A})
 
         except Exception as e:
@@ -187,6 +187,12 @@ with tqdm(total=len(persons_df), desc="Overall Progress", ncols=100, colour="blu
             person_summary.append({"person": name, "A*": 0, "A": 0})
 
         pbar.update(1)
+
+
+# ------------------------------------------------------------
+# Download vs Cached summary
+# ------------------------------------------------------------
+print(f"\n💾 Downloaded XMLs: {downloaded_count} | Cached XMLs used: {cached_count}")
 
 # ------------------------------------------------------------
 # Print colored summaries
@@ -204,10 +210,6 @@ overall_table = [
 ]
 print(tabulate(overall_table, headers="keys", tablefmt="grid"))
 
-# ------------------------------------------------------------
-# Download vs Cached summary
-# ------------------------------------------------------------
-print(f"\n💾 Downloaded XMLs: {downloaded_count} | Cached XMLs used: {cached_count}")
 
 # ------------------------------------------------------------
 # Save results
