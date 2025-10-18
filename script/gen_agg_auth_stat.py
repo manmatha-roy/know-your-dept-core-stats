@@ -97,7 +97,7 @@ def is_valid_url(url):
 # ------------------------------
 # Load CORE database
 # ------------------------------
-core_path = "data/core_onlyA.csv"
+core_path = "data/core_onlyA_exclude_NLP.csv"
 if not os.path.isfile(core_path):
     print(f"{RED}❌ CORE database file '{core_path}' not found in ./data/{RESET}")
     sys.exit(1)
